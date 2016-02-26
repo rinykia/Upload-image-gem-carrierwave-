@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Album.delete_all
+a1 = Album.create(title: "Album1")
+a2 = Album.create(title: "Album2")
+a3 = Album.create(title: "Album3")
+a4 = Album.create(title: "Album4")
+a5 = Album.create(title: "Album5")
+
+User.delete_all
+
+
+

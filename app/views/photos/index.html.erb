@@ -1,29 +1,34 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Photos</h1>
-
 <table>
-  <thead>
     <tr>
-      <th>Title</th>
-      <th>Image</th>
-      <th>Album</th>
-      <th colspan="3"></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
-  </thead>
 
-  <tbody>
     <% @photos.each do |photo| %>
       <tr>
         <td><%= photo.title %></td>
-        <td><%= photo.image %></td>
-        <td><%= photo.album %></td>
+        <td>
+        <ul class="rating"> 
+          <% form_id = "photo_#{photo.id}_rating" %>
+          <%= form_for photo.ratings.last || photo.ratings.build, :html => {:id => "photo_#{photo.id}_rating"} do |f| %>
+            <%= f.hidden_field :photo_id %>
+            <%= f.hidden_field :stars, :id => "#{form_id}_stars" %>
+          <% end %>
+          <% (1..5).each do |i| %>
+            <li class="rating_star" data-stars="<%= i %>" data-form-id="<%= form_id %>" id="<%= "#{form_id}_#{i}" %>"></li>
+          <% end %>
+        </ul>
+       </td>
         <td><%= link_to 'Show', photo %></td>
         <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
         <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
 </table>
 
 <br>

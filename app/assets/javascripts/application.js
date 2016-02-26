@@ -14,3 +14,26 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(function() {
+  $('.rating_star').click(function() {
+    var star = $(this);
+    var form_id = $(this).attr('data-form-id');
+    var stars = $(this).attr('data-stars');
+
+    for(i=1; i<=5; i++){
+      if(i <= stars){
+        $('#' + form_id + '_' + i).addClass('on');
+      } else {
+        $('#' + form_id + '_' + i).removeClass('on');
+      }
+    }
+    
+    $('#' + form_id + '_stars').val(stars);
+
+    $.ajax({
+      type: "POST",
+      url: $('#' + form_id).attr('action'),
+      data: $('#' + form_id).serialize()
+    });
+  });
+});
