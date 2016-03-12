@@ -1,0 +1,29 @@
+@import"bootstrap-sprockets";
+@import"bootstrap";
+
+.rating_star{
+  background: url(star-off.png) 0 0;
+  width: 16px;
+  height: 16px;
+  display: block;
+  float: left;
+
+}
+.rating{
+  margin: auto 0;
+  
+}
+.on{
+  background: url(star-on.png) 0 0;
+  background-position: 0 16px;
+}
+
+#myCarousel .nav a small {
+    display:block;
+}
+#myCarousel .nav {
+  background:#eee;
+}
+#myCarousel .nav a {
+    border-radius:0px;
+}

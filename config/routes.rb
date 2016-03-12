@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :sliders
+  mount Ckeditor::Engine => '/ckeditor'
+  resources :comments
   resources :photos
   resources :albums do
     resources :photos
@@ -13,7 +16,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  #mount Ckeditor::Engine => "/ckeditor"
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

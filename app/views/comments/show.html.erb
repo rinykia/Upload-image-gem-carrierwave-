@@ -1,0 +1,8 @@
+
+<p id="notice"><%= notice %></p>
+<%= @comment.title %>
+<%= (@comment.descripton).html_safe %>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>
